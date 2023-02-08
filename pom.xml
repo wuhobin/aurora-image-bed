@@ -158,4 +158,9 @@
         </plugins>
     </build>
 
+
+    <modules>
+        <module>springboot-common</module>
+    </modules>
+
 </project>
