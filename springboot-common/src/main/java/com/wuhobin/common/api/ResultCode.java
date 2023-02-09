@@ -43,6 +43,7 @@ public enum ResultCode implements IErrorCode {
     UN_REGISTER(-2004, "未注册"),
     LOGIN_FAILURE(-2001, "登陆失败"),
     TOUCH_LIMIT(-2002, "触发限流器"),
+    TOUCH_FALL(-2003, "触发熔断"),
     USER_NOT_AUTH(-4012, "用户一网通"),
     USER_NOT_REAL(-4013, "用户未实名"),
 

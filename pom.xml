@@ -188,6 +188,7 @@
     <modules>
         <module>springboot-common</module>
         <module>springboot-nacos</module>
+        <module>springboot-sentinel</module>
     </modules>
 
 </project>
