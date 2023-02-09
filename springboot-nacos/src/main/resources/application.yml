@@ -1,52 +1,9 @@
-server:
-  port: 8080
-
 spring:
-  application:
-    name: Springboot-nacos-service
+  profiles:
+    active: @profiles.active@
   jackson:
     serialization:
-      #Õ≥“ª∑µªÿ ±º‰¥¡
+      #Êó∂Èó¥Êà≥ ËøîÂõûÊ†ºÂºè
       write-dates-as-timestamps: true
-
-  datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://rm-bp1j8k9s2330jz5jdyo.mysql.rds.aliyuncs.com/security_jwt?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=GMT%2B8
-    username: root
-    password: Whb18772916901
-    hikari:
-      minimum-idle: 5
-      idle-timeout: 180000
-      maximum-pool-size: 10
-      auto-commit: true
-      pool-name: MyHikariCP
-      max-lifetime: 1800000
-      connection-timeout: 30000
-      connection-test-query: SELECT 1
-
-  redis:
-    database: 70
-    host: 192.168.1.33
-    password: 1qazXSW@3edc
-    port: 6379
-    lettuce:
-      pool:
-        min-idle: 8
-        max-idle: 100
-
-        max-active: 100
-        max-wait: -1
-
-
-
-mybatis-plus:
-  configuration:
-    map-underscore-to-camel-case: true
-    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  type-aliases-package: com.wuhobin.springsecurity.dataobject
-  mapper-locations: classpath:/mapper/*Mapper.xml
-
-
 logging:
   config: classpath:log4j2.xml

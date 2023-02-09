@@ -29,7 +29,7 @@
         <spring-boot.version>2.4.5</spring-boot.version>
         <spring-cloud.version>2020.0.1</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
-
+        <spring-cloud.bootstrap>3.0.0</spring-cloud.bootstrap>
         <org.aspect.aspectjrt>1.9.4</org.aspect.aspectjrt>
         <org.aspect.aspectjweaver>1.9.4</org.aspect.aspectjweaver>
         <commons.io.version>2.4</commons.io.version>
@@ -79,6 +79,13 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-bootstrap</artifactId>
+                <version>${spring-cloud.bootstrap}</version>
+            </dependency>
+
 
             <!--  springcloud cloud alibaba -->
             <dependency>
