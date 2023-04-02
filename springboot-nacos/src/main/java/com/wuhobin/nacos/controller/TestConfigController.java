@@ -1,7 +1,7 @@
 package com.wuhobin.nacos.controller;
 
 import com.wuhobin.common.api.CommonResult;
-import com.wuhobin.hellospringbootstater.service.MessageService;
+import com.wuhobin.hellospringbootstarter.service.MessageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
