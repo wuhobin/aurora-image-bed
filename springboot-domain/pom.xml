@@ -14,6 +14,7 @@
 
     <dependencies>
 
+        <!--项目依赖 -->
         <dependency>
             <groupId>com.wuhobin</groupId>
             <artifactId>springboot-common</artifactId>
@@ -30,19 +31,27 @@
             </exclusions>
         </dependency>
 
-        <!--nacos-config-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+                    <groupId>org.springframework.cloud</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
-        <!--nacos-discovery-->
+        <!--   加上这个依赖识别 bootstrap.properties    -->
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
-
-
 
     </dependencies>
 
