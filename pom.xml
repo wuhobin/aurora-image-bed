@@ -105,7 +105,6 @@
             </dependency>
 
 
-
             <!-- mybatis-plus -->
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -143,14 +142,12 @@
             </dependency>
 
 
-
             <!-- commons-io -->
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons.io.version}</version>
             </dependency>
-
 
             <!-- 通用链接池-->
             <dependency>
@@ -189,6 +186,7 @@
         <module>springboot-common</module>
         <module>springboot-nacos</module>
         <module>springboot-sentinel</module>
+        <module>springboot-domain</module>
     </modules>
 
 </project>
