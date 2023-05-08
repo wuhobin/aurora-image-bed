@@ -54,7 +54,6 @@
         <bitwalker.version>1.21</bitwalker.version>
         <swagger.version>3.0.0</swagger.version>
         <kaptcha.version>2.3.3</kaptcha.version>
-        <pagehelper.boot.version>1.4.6</pagehelper.boot.version>
         <fastjson.version>1.2.83</fastjson.version>
         <oshi.version>6.4.0</oshi.version>
         <jwt.version>0.9.1</jwt.version>
