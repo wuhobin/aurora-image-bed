@@ -4,6 +4,7 @@ package com.wuhobin.nacos;
 import com.alibaba.cloud.nacos.NacosConfigManager;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.exception.NacosException;
+import com.wuhobin.common.util.RedisIdWorker;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -33,6 +34,9 @@ public class SpringbootNacosApplicationTests {
     @Autowired
     private RedisTemplate redisTemplate;
 
+    @Autowired
+    private RedisIdWorker redisIdWorker;
+
     @Test
     public void getConfig(){
         String dataId = "springboot-nacos.yaml";
@@ -47,6 +51,12 @@ public class SpringbootNacosApplicationTests {
             e.printStackTrace();
         }
 
+    }
+
+    @Test
+    public void getId(){
+        long id = redisIdWorker.nextId("aaaaaaaaaaaa");
+        System.out.println(id);
     }
 
 }
