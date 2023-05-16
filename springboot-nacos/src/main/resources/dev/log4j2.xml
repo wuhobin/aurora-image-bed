@@ -2,7 +2,7 @@
 <configuration status="off" monitorInterval="1800">
 
 	<properties>
-		<property name="log.dir">./logs/</property>
+		<property name="log.dir">../logs/</property>
 	</properties>
 
 	<!--先定义所有的appender -->
