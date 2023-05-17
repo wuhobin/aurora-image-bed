@@ -2,6 +2,7 @@ package com.wuhobin.nacos.controller;
 
 import com.wuhobin.common.api.CommonResult;
 import com.wuhobin.hellospringbootstarter.service.MessageService;
+import com.wuhobin.nacos.feign.client.SentinelClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,13 +23,16 @@ public class TestConfigController {
     @Autowired
     private MessageService messageService;
 
+    @Autowired
+    private SentinelClient sentinelClient;
+
     @Value("${app.sss}")
     private String app;
 
     @GetMapping("/getConfig")
     public CommonResult test(){
         messageService.sayMessage();
-        return CommonResult.success();
+        return sentinelClient.testSentinel();
     }
 
 

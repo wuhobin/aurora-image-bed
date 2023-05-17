@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class SentinelController {
 
 
-    @SentinelResource(value = "testSentinel",blockHandler = "testSentinel",blockHandlerClass = {BlockHandlerUtil.class},fallback = "testSentinel",fallbackClass = {FallBackUtil.class})
+    //@SentinelResource(value = "testSentinel",blockHandler = "testSentinel",blockHandlerClass = {BlockHandlerUtil.class},fallback = "testSentinel",fallbackClass = {FallBackUtil.class})
     @GetMapping("/sentinel")
     public CommonResult testSentinel(){
-        return CommonResult.success("sssssssssss");
+        return CommonResult.success("aaa");
     }
 
 }
