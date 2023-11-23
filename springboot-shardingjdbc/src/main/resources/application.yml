@@ -1,0 +1,11 @@
+server:
+  port: 8081
+
+spring:
+  jackson:
+    serialization:
+      write-dates-as-timestamps: true
+
+
+logging:
+  config: classpath:log4j2.xml
