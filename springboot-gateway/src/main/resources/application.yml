@@ -1,13 +1,14 @@
+server:
+  port: 10010
+
 spring:
   profiles:
     active: @profiles.active@
   jackson:
     serialization:
-      #时间戳 返回格式
       write-dates-as-timestamps: true
+
+
 logging:
   config: classpath:log4j2.xml
 
-
-server:
-  port: 8081

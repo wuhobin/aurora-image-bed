@@ -1,14 +1,22 @@
 package com.wuhobin.nacos.controller;
 
+import cn.hutool.core.lang.hash.Hash;
 import com.wuhobin.common.api.CommonResult;
 import com.wuhobin.hellospringbootstarter.service.MessageService;
 import com.wuhobin.nacos.feign.client.SentinelClient;
+import com.wuhobin.springbootdomain.dataobject.UserDO;
+import com.wuhobin.springbootdomain.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author wuhongbin
@@ -26,8 +34,8 @@ public class TestConfigController {
     @Autowired
     private SentinelClient sentinelClient;
 
-    @Value("${app.sss}")
-    private String app;
+    @Autowired
+    private UserService userService;
 
     @GetMapping("/getConfig")
     public CommonResult test(){
@@ -35,7 +43,13 @@ public class TestConfigController {
         return sentinelClient.testSentinel();
     }
 
-
+    @GetMapping("/get")
+    public CommonResult getUser(){
+        Map<String, Object> map = new HashMap<>();
+        UserDO one = userService.lambdaQuery().orderByAsc(UserDO::getId).last("limit 0,1").one();
+        map.put("user", one);
+        return CommonResult.success(map);
+    }
 
 
 }
