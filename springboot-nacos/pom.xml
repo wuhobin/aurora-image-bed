@@ -99,9 +99,9 @@
                 <directory>src/main/resources/</directory>
                 <!--打包时先排除掉三个文件夹 -->
                 <excludes>
-                    <exclude>dev/*</exclude>
-                    <exclude>test/*</exclude>
-                    <exclude>product/*</exclude>
+                    <exclude>dev/**</exclude>
+                    <exclude>test/**</exclude>
+                    <exclude>product/**</exclude>
                 </excludes>
                 <includes>
                     <!--如果有其他定义通用文件，需要包含进来 -->
