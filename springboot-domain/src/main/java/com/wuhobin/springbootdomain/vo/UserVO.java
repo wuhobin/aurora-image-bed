@@ -1,15 +1,16 @@
-package com.wuhobin.springbootdomain.dataobject;
+package com.wuhobin.springbootdomain.vo;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import java.io.Serializable;
-import java.util.Date;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
+
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -24,7 +25,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @TableName("t_user")
 @ApiModel(value="UserDO对象", description="")
-public class UserDO implements Serializable {
+public class UserVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

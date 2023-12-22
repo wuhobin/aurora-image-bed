@@ -2,8 +2,10 @@ package com.wuhobin.springbootgateway.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wuhobin.common.api.CommonResult;
+import com.wuhobin.springbootgateway.config.SecurityProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +16,8 @@ import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.Arrays;
 
 /**
  * 实现了GlobalFilter接口的filter 全局生效，不需要在配置中配置
@@ -26,10 +30,18 @@ import reactor.core.publisher.Mono;
 @Slf4j
 public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
+    @Autowired
+    private SecurityProperties securityProperties;
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
-        log.info("请求地址： {}", request.getURI().getPath());
+        String path = request.getURI().getPath();
+        log.info("请求地址： {}", path);
+        if (Arrays.asList(securityProperties.getHttpUrls()).contains(path)){
+            log.info("当前请求地址是白名单地址，直接放行： {}", path);
+            return chain.filter(exchange);
+        }
         if (StringUtils.isEmpty(request.getHeaders().getFirst("token"))){
             return response(exchange.getResponse(), CommonResult.failed("未登录，请先登录"));
         }
@@ -50,6 +62,6 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
             e.printStackTrace();
         }
         DataBuffer dataBuffer = response.bufferFactory().wrap(resJson.getBytes());
-        return response.writeWith(Flux.just(dataBuffer));//响应json数据
+        return response.writeWith(Flux.just(dataBuffer));
     }
 }
