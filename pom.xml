@@ -230,7 +230,7 @@
         <module>springboot-nacos</module>
         <module>springboot-sentinel</module>
         <module>springboot-domain</module>
-        <module>springboot-shardingjdbc</module>
+        <module>springboot-uaa</module>
         <module>springboot-gateway</module>
     </modules>
 

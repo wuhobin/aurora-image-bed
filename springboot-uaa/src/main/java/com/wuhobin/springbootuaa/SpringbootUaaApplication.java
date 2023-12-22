@@ -1,4 +1,4 @@
-package com.wuhobin.springbootshardingjdbc;
+package com.wuhobin.springbootuaa;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -12,15 +12,15 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = "com.wuhobin")
 @MapperScan("com.wuhobin.springbootdomain.mapper")
 @SpringBootApplication
-public class SpringbootShardingJdbcApplication extends SpringBootServletInitializer {
+public class SpringbootUaaApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(SpringbootShardingJdbcApplication.class);
+        return application.sources(SpringbootUaaApplication.class);
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootShardingJdbcApplication.class, args);
+        SpringApplication.run(SpringbootUaaApplication.class, args);
     }
 
 }
