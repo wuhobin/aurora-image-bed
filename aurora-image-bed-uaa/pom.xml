@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.wuhobin</groupId>
-        <artifactId>springboot</artifactId>
+        <groupId>com.wuhobin.image</groupId>
+        <artifactId>aurora-image-bed</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
 
-    <artifactId>springboot-gateway</artifactId>
+    <artifactId>aurora-image-bed-uaa</artifactId>
     <packaging>war</packaging>
     <properties>
         <java.version>1.8</java.version>
@@ -22,15 +22,23 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.wuhobin</groupId>
-            <artifactId>springboot-domain</artifactId>
+            <groupId>com.wuhobin.image</groupId>
+            <artifactId>aurora-image-bed-domain</artifactId>
             <version>1.0.0-SNAPSHOT</version>
-            <exclusions>
-                <exclusion> <!-- we prefer our explicit version, though it should be the same -->
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-            </exclusions>
+        </dependency>
+
+        <!-- Sa-Token 权限认证，在线文档：https://sa-token.cc -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot-starter</artifactId>
+            <version>1.37.0</version>
+        </dependency>
+
+        <!-- Sa-Token 整合 Redis （使用 jackson 序列化方式） -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-redis-jackson</artifactId>
+            <version>1.37.0</version>
         </dependency>
 
         <dependency>
@@ -47,38 +55,11 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>cn.dev33</groupId>
-            <artifactId>sa-token-reactor-spring-boot-starter</artifactId>
-            <version>1.37.0</version>
-        </dependency>
-
-        <!-- Sa-Token 整合 Redis （使用 jackson 序列化方式） -->
-        <dependency>
-            <groupId>cn.dev33</groupId>
-            <artifactId>sa-token-redis-jackson</artifactId>
-            <version>1.37.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-spring-cloud-gateway-adapter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-        </dependency>
-
-        <!-- 用于sentinel动态读取nacos的配置 -->
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-datasource-nacos</artifactId>
-        </dependency>
 
     </dependencies>
 
@@ -105,6 +86,7 @@
             </plugin>
 
         </plugins>
+
 
         <resources>
             <resource>
@@ -155,8 +137,9 @@
             </properties>
             <!--activation用来指定激活方式，可以根据jdk环境，环境变量，文件的存在或缺失 -->
         </profile>
-
-
     </profiles>
+
+
+
 
 </project>

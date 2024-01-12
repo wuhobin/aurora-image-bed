@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.wuhobin</groupId>
-    <artifactId>springboot</artifactId>
+    <groupId>com.wuhobin.image</groupId>
+    <artifactId>aurora-image-bed</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>springboot</name>
+    <name>aurora-image-bed</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.18.10</lombok.version>
@@ -226,11 +226,10 @@
 
 
     <modules>
-        <module>springboot-common</module>
-        <module>springboot-sentinel</module>
-        <module>springboot-domain</module>
-        <module>springboot-uaa</module>
-        <module>springboot-gateway</module>
+        <module>aurora-image-bed-common</module>
+        <module>aurora-image-bed-domain</module>
+        <module>aurora-image-bed-uaa</module>
+        <module>aurora-image-bed-gateway</module>
     </modules>
 
 </project>

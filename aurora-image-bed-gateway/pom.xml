@@ -3,14 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.wuhobin</groupId>
-        <artifactId>springboot</artifactId>
+        <groupId>com.wuhobin.image</groupId>
+        <artifactId>aurora-image-bed</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
 
-    <artifactId>springboot-sentinel</artifactId>
+    <artifactId>aurora-image-bed-gateway</artifactId>
     <packaging>war</packaging>
     <properties>
         <java.version>1.8</java.version>
@@ -22,9 +22,15 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.wuhobin</groupId>
-            <artifactId>springboot-domain</artifactId>
+            <groupId>com.wuhobin.image</groupId>
+            <artifactId>aurora-image-bed-domain</artifactId>
             <version>1.0.0-SNAPSHOT</version>
+            <exclusions>
+                <exclusion> <!-- we prefer our explicit version, though it should be the same -->
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
@@ -41,30 +47,37 @@
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
-        <!--    sentinel 注解支持需要的依赖    -->
         <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-annotation-aspectj</artifactId>
-            <version>1.8.6</version>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-reactor-spring-boot-starter</artifactId>
+            <version>1.37.0</version>
         </dependency>
 
-        <!--    引入什么依赖 具体可以看sentinel官方文档    -->
+        <!-- Sa-Token 整合 Redis （使用 jackson 序列化方式） -->
         <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-core</artifactId>
-            <version>1.8.6</version>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-redis-jackson</artifactId>
+            <version>1.37.0</version>
         </dependency>
 
-        <!--    sentinel 监控控制台需要的依赖    -->
         <dependency>
             <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-transport-simple-http</artifactId>
-            <version>1.8.6</version>
+            <artifactId>sentinel-spring-cloud-gateway-adapter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
+        <!-- 用于sentinel动态读取nacos的配置 -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
         </dependency>
 
     </dependencies>
