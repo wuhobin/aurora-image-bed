@@ -227,7 +227,6 @@
 
     <modules>
         <module>springboot-common</module>
-        <module>springboot-nacos</module>
         <module>springboot-sentinel</module>
         <module>springboot-domain</module>
         <module>springboot-uaa</module>
