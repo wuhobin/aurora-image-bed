@@ -1,4 +1,4 @@
-package com.wuhobin.springbootgateway.filter;
+package com.wuhobin.gateway.filter;
 
 import cn.dev33.satoken.same.SaSameUtil;
 import lombok.extern.slf4j.Slf4j;

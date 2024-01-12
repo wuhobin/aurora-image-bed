@@ -1,4 +1,4 @@
-package com.wuhobin.springbootgateway.utils;
+package com.wuhobin.gateway.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.core.io.buffer.DataBuffer;

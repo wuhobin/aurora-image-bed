@@ -1,4 +1,4 @@
-package com.wuhobin.springbootuaa.controller;
+package com.wuhobin.uaa.controller;
 
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;

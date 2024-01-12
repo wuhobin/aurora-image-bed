@@ -1,7 +1,7 @@
-package com.wuhobin.springbootgateway.config;
+package com.wuhobin.gateway.config;
 
 import com.alibaba.csp.sentinel.adapter.gateway.sc.SentinelGatewayFilter;
-import com.wuhobin.springbootgateway.handler.SentinelFallbackHandler;
+import com.wuhobin.gateway.handler.SentinelFallbackHandler;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.context.annotation.Bean;

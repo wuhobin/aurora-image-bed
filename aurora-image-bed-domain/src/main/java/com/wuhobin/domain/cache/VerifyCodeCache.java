@@ -1,4 +1,4 @@
-package com.wuhobin.springbootdomain.cache;
+package com.wuhobin.domain.cache;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.wuhobin.springbootgateway.config;
+package com.wuhobin.gateway.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
