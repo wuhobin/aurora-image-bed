@@ -1,4 +1,4 @@
-package com.wuhobin.uaa;
+package com.wuhobin.userservice;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
@@ -9,7 +9,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.ComponentScan;
 
 @EnableDiscoveryClient
-@ComponentScan(basePackages = "com.wuhobin")
+@ComponentScan(basePackages = "com.wuhobin.*")
 @MapperScan("com.wuhobin.domain.mapper")
 @SpringBootApplication
 public class SpringbootUserServiceApplication extends SpringBootServletInitializer {

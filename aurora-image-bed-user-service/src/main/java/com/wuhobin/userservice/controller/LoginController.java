@@ -1,4 +1,4 @@
-package com.wuhobin.uaa.controller;
+package com.wuhobin.userservice.controller;
 
 import cn.dev33.satoken.stp.SaTokenInfo;
 import cn.dev33.satoken.stp.StpUtil;

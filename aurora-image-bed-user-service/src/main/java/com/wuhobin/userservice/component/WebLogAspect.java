@@ -1,4 +1,4 @@
-package com.wuhobin.uaa.component;
+package com.wuhobin.userservice.component;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.URLUtil;

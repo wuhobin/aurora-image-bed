@@ -1,4 +1,4 @@
-package com.wuhobin.uaa.interceptor;
+package com.wuhobin.userservice.interceptor;
 
 import cn.dev33.satoken.context.SaHolder;
 import cn.dev33.satoken.filter.SaServletFilter;
