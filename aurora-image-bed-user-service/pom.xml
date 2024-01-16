@@ -10,7 +10,7 @@
     </parent>
 
 
-    <artifactId>aurora-image-bed-uaa</artifactId>
+    <artifactId>aurora-image-bed-user-service</artifactId>
     <packaging>war</packaging>
     <properties>
         <java.version>1.8</java.version>

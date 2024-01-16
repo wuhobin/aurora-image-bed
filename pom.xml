@@ -228,7 +228,7 @@
     <modules>
         <module>aurora-image-bed-common</module>
         <module>aurora-image-bed-domain</module>
-        <module>aurora-image-bed-uaa</module>
+        <module>aurora-image-bed-user-service</module>
         <module>aurora-image-bed-gateway</module>
     </modules>
 
