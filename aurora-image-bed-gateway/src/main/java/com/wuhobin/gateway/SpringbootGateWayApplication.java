@@ -13,7 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @EnableDiscoveryClient
 @ComponentScan(basePackages = "com.wuhobin")
-@MapperScan("com.wuhobin.springbootdomain.mapper")
+@MapperScan("com.wuhobin.domain.mapper")
 @SpringBootApplication
 public class SpringbootGateWayApplication extends SpringBootServletInitializer {
 

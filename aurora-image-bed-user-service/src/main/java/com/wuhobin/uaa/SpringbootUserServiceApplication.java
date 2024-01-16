@@ -10,17 +10,17 @@ import org.springframework.context.annotation.ComponentScan;
 
 @EnableDiscoveryClient
 @ComponentScan(basePackages = "com.wuhobin")
-@MapperScan("com.wuhobin.springbootdomain.mapper")
+@MapperScan("com.wuhobin.domain.mapper")
 @SpringBootApplication
-public class SpringbootUaaApplication extends SpringBootServletInitializer {
+public class SpringbootUserServiceApplication extends SpringBootServletInitializer {
 
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(SpringbootUaaApplication.class);
+        return application.sources(SpringbootUserServiceApplication.class);
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootUaaApplication.class, args);
+        SpringApplication.run(SpringbootUserServiceApplication.class, args);
     }
 
 }
