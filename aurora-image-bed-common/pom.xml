@@ -251,6 +251,11 @@
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.velocity/velocity-engine-core -->
 
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
