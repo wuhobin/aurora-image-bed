@@ -19,19 +19,19 @@ import java.util.Collections;
  */
 public class CodeGeneratorPlus {
 
-    private static String jdbcUrl = "jdbc:mysql://rm-bp1j8k9s2330jz5jdyo.mysql.rds.aliyuncs.com:3306/security_jwt?useUnicode=true&characterEncoding=UTF-8";
+    private static String jdbcUrl = "jdbc:mysql://rm-bp1j8k9s2330jz5jdyo.mysql.rds.aliyuncs.com:3306/aurora-image-bed?useUnicode=true&characterEncoding=UTF-8";
     private static String jdbcUsername = "root";
     private static String jdbcPassword = "Whb18772916901";
 
     /**
      * 父级包名配置
      */
-    private static String parentPackage = "com.wuhobin.springbootdomain";
+    private static String parentPackage = "com.wuhobin.domain";
 
     /**
      * 项目业务module
      */
-    private static String moduleName = "springboot-domain";
+    private static String moduleName = "aurora-image-bed-domain";
 
     /**
      * 生成代码的 @author 值
@@ -41,7 +41,7 @@ public class CodeGeneratorPlus {
     /**
      * 项目地址[改为自己本地项目位置]
      */
-    private static String projectPath = "D:/idea_wuhongbin/springboot_study/springboot";
+    private static String projectPath = "D:/idea_wuhongbin/springboot_study/aurora-image-bed";
 
     /**
      * mapper.xml模板引擎
@@ -66,17 +66,17 @@ public class CodeGeneratorPlus {
     /**
      * vo生成目录
      */
-    private static String voPath = "/src/main/java/com/wuhobin/springbootdomain/vo";
+    private static String voPath = "/src/main/java/com/wuhobin/domain/vo";
 
     /**
      * do生成目录
      */
-    private static String doPath = "/src/main/java/com/wuhobin/springbootdomain/dataobject";
+    private static String doPath = "/src/main/java/com/wuhobin/domain/dataobject";
 
     /**
      * java Mapper生成目录
      */
-    private static String mapperPath = "/src/main/java/com/wuhobin/springbootdomain/mapper";
+    private static String mapperPath = "/src/main/java/com/wuhobin/domain/mapper";
 
     /**
      * 要生成代码的表名配置
@@ -134,27 +134,7 @@ public class CodeGeneratorPlus {
                             .service("service")    //  Service 包名
                             .serviceImpl("service.impl") //Service Impl 包名
                             .pathInfo(Collections.singletonMap(OutputFile.xml, projectPath + "/" + moduleName + "/src/main/resources/sqlmap/mapper"));
-                })  // 4. 注入配置
-                //.injectionConfig(consumer -> {
-                //    consumer
-                //            .beforeOutputFile((tableInfo, objectMap) -> {   // xml输出
-                //                objectMap.put(projectPath + "/" + moduleName + "/src/main/resources/sqlmap/mapper"
-                //                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_XML, mapperTemplatePath);
-                //            })
-                //            .beforeOutputFile((tableInfo, objectMap) -> {   // VO输出
-                //                objectMap.put(projectPath + "/" + moduleName + voPath
-                //                        + "/" + tableInfo.getEntityName() + "VO" + StringPool.DOT_JAVA, entityTemplatePath);
-                //            })
-                //            .beforeOutputFile((tableInfo, objectMap) -> {   // DO输出
-                //                objectMap.put(projectPath + "/" + moduleName + doPath
-                //                        + "/" + tableInfo.getEntityName() + "DO" + StringPool.DOT_JAVA, dataObjectTemplatePath);
-                //            })
-                //            .beforeOutputFile((tableInfo, objectMap) -> {   // Mapper输出
-                //                objectMap.put(projectPath + "/" + moduleName + mapperPath
-                //                        + "/" + tableInfo.getEntityName() + "Mapper" + StringPool.DOT_JAVA, javaMapperTemplatePath);
-                //            });
-                //
-                //})
+                })
                 .strategyConfig(builder -> {
                     builder
                             .enableCapitalMode()    //开启大写命名
