@@ -1,4 +1,4 @@
-package com.wuhobin.userservice.utils;
+package com.wuhobin.common.util;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;

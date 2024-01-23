@@ -1,13 +1,12 @@
 package com.wuhobin.userservice;
 
-import com.wuhobin.userservice.utils.MailUtil;
+import com.wuhobin.common.config.async.AsyncFactory;
+import com.wuhobin.common.util.MailUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import java.util.Collections;
 
 /**
  * @author wuhongbin
@@ -24,7 +23,9 @@ public class UserTest {
 
     @Test
     public void test(){
-        mailUtil.sendMailMessage(Collections.singletonList("1289066006@qq.com"), "你好", "您收到的验证码为： 123456");
+        //mailUtil.sendMailMessage(Collections.singletonList("1289066006@qq.com"), "你好", "您收到的验证码为： 123456");
+
+        AsyncFactory.runAsync(() -> System.out.println("异步执行"));
     }
 
 }

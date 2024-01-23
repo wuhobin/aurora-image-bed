@@ -33,4 +33,6 @@ public class BasePlatformConfig {
      */
     public String qiNiuBucket;
 
+    public String activationCodeUrl;
+
 }

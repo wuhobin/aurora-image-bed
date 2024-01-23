@@ -18,6 +18,10 @@ public enum ResultCode implements IErrorCode {
     FORBIDDEN(403, "无权限"),
 
 
+    EMAIL_EXIST(-1001, "该邮件地址已注册"),
+
+    USER_NAME_EXIST(-1002, "该用户名已被使用"),
+
     ;
     private long code;
     private String message;
