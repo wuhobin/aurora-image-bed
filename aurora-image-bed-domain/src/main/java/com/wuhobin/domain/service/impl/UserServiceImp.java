@@ -8,13 +8,16 @@ import com.wuhobin.common.config.base.BasePlatformConfig;
 import com.wuhobin.common.exception.ServiceException;
 import com.wuhobin.common.util.BeanCopyUtil;
 import com.wuhobin.common.util.MailUtil;
+import com.wuhobin.common.util.StringUtils;
 import com.wuhobin.common.util.security.AESUtil;
 import com.wuhobin.domain.cache.CommonStrCache;
 import com.wuhobin.domain.constant.CommonConstants;
+import com.wuhobin.domain.constant.UserActiveEnums;
 import com.wuhobin.domain.dataobject.UserDO;
 import com.wuhobin.domain.mapper.UserMapper;
 import com.wuhobin.domain.service.UserService;
 import com.wuhobin.domain.vo.UserVO;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +36,7 @@ import java.util.concurrent.TimeUnit;
  * @since 2024-01-18
  */
 @Service
+@Slf4j
 public class UserServiceImp extends ServiceImpl<UserMapper, UserDO> implements UserService {
 
     @Autowired
@@ -83,6 +87,25 @@ public class UserServiceImp extends ServiceImpl<UserMapper, UserDO> implements U
         strCache.addStrCache(String.format(CommonConstants.ACTIVATION_CODE_KEY, code), email, 2L, TimeUnit.HOURS);
         AsyncFactory.runAsync(() -> mailUtil.sendMailMessage(Collections.singletonList(email), "您在 遇见 - 图仓 注册的账号已经准备好, 激活后可立即使用.", buildText(username, code)));
         return CommonResult.success();
+    }
+
+    @Override
+    public CommonResult accountActive(String code) {
+        String email = strCache.getStrCache(code);
+        if (StringUtils.isEmpty(email)) {
+            log.info("该激活码已失效，请重新激活 code={}", code);
+            return CommonResult.failed(ResultCode.ACTIVE_CODE_IS_ERROR);
+        }
+        UserVO userVO = selectUserByEmail(email);
+        if (ObjectUtils.isEmpty(userVO)){
+            log.info("激活码错误，请重新激活 code={}", code);
+            return CommonResult.failed(ResultCode.ACTIVE_CODE_IS_ERROR);
+        }
+        if (userVO.getIsActive().equals(UserActiveEnums.ACTIVE.getType())){
+            log.info("账户已激活，code={}，email={}", code, email);
+            return CommonResult.failed(ResultCode.USER_IS_ACTIVE);
+        }
+        return null;
     }
 
 

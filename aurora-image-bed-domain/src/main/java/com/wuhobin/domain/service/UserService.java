@@ -26,4 +26,6 @@ public interface UserService extends IService<UserDO> {
 
 
     CommonResult register(String email, String username, String password);
+
+    CommonResult accountActive(String code);
 }

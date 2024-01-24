@@ -41,6 +41,20 @@ public class UserController {
     }
 
 
+    /**
+     * 激活账户
+     * @param code
+     * @return
+     */
+    @PostMapping("/account/active")
+    public CommonResult accountActive(String code) {
+        if (StringUtils.isEmpty(code)) {
+            return CommonResult.failed(ResultCode.VALIDATE_FAILED);
+        }
+        return userService.accountActive(code);
+    }
+
+
 
 
 }

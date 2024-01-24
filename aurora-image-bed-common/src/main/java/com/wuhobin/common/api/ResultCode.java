@@ -19,9 +19,10 @@ public enum ResultCode implements IErrorCode {
 
 
     EMAIL_EXIST(-1001, "该邮件地址已注册"),
-
     USER_NAME_EXIST(-1002, "该用户名已被使用"),
+    ACTIVE_CODE_IS_ERROR(-1003, "该激活码已失效或者错误，请重新激活！"),
 
+    USER_IS_ACTIVE(-1004, "您的账户已激活，无需再次激活！"),
     ;
     private long code;
     private String message;
